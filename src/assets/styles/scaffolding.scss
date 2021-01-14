@@ -1,3 +1,5 @@
+@import "src/assets/styles/variables";
+
 html {
   box-sizing: border-box;
   scroll-behavior: smooth;
@@ -13,10 +15,10 @@ body {
   font-family: "Merriweather", "Arial", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 400;
-  line-height: 1.2;
-  background-color: #fffffe;
+  line-height: 1.5;
+  background-color: $bg-light;
   margin: 0;
 }
 
