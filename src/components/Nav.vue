@@ -63,7 +63,7 @@ export default {
     transition: color 0.3s;
 
     &:hover {
-      color: $hover;
+      color: $hover-light;
     }
   }
 </style>

@@ -178,7 +178,15 @@ export default {
 
     &:hover {
       & #logo__bg {
-        fill: $hover;
+        transition: fill 0.3s;
+      }
+    }
+
+    & #logo__bg {
+      transition: fill 0.3s;
+
+      &:hover {
+        fill: $hover-light;
       }
     }
   }

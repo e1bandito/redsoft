@@ -1,36 +1,40 @@
 <template>
-  <div class="header">
+  <footer class="footer">
     <div class="container">
-      <div class="header__inner">
+      <div class="footer__inner">
         <Logo/>
         <Nav/>
-        <Search/>
+        <Contacts/>
       </div>
     </div>
-  </div>
+  </footer>
 </template>
 
 <script>
 import Logo from "@/components/Logo";
 import Nav from "@/components/Nav";
-import Search from "@/components/Search";
+import Contacts from "@/components/Contacts";
 export default {
-  name: 'Header',
-  components: {Search, Nav, Logo},
+  name: "Footer",
+  components: {Contacts, Nav, Logo}
 }
 </script>
 
 <style lang="scss">
   @import "src/assets/styles/variables";
-  @import "src/assets/styles/scaffolding";
 
-  .header {
+  .footer {
     flex-shrink: 0;
-    padding: 18px 0 17px;
-    border-bottom: 1px solid $border-light;
+    padding: 18px 0;
+    background-color: $bg-dark;
+    margin-top: auto;
+
+    & #logo__bg {
+      fill: $main;
+    }
   }
 
-  .header__inner {
+  .footer__inner {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
