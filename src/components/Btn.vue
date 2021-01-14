@@ -32,6 +32,8 @@ export default {
     color: $white;
     cursor: pointer;
     transition: background-color 0.3s;
+    padding: 8px;
+    margin: 0;
 
     &:hover {
       background-color: $hover;

@@ -176,16 +176,12 @@ export default {
   .logo__link {
     display: block;
 
-    &:hover {
-      & #logo__bg {
-        transition: fill 0.3s;
-      }
-    }
-
     & #logo__bg {
       transition: fill 0.3s;
+    }
 
-      &:hover {
+    &:hover {
+      & #logo__bg {
         fill: $hover-light;
       }
     }
