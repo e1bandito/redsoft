@@ -1,11 +1,15 @@
 <template>
   <div class="contacts">
     <p class="contacts__phone">
-      <img src="../assets/img/phone.svg" alt="phone-icon">
+      <svg width="14" height="14">
+        <use xlink:href="../assets/img/sprite.svg#icon_phone"/>
+      </svg>
       <a href="tel:+74955555555" class="contacts__link">+7 (495) 555-55-55</a>
     </p>
     <p class="contacts__address">
-      <img src="../assets/img/pin.svg" alt="map-pin">
+      <svg width="14" height="14">
+        <use xlink:href="../assets/img/sprite.svg#icon_pin"/>
+      </svg>
       г. Москва, ул. Расплетина, 24
     </p>
   </div>
@@ -30,7 +34,7 @@ export default {
     align-items: center;
     margin-right: 55px;
 
-    & img {
+    & svg {
       display: block;
       margin-right: 8px;
     }
@@ -40,7 +44,8 @@ export default {
     display: flex;
     align-items: center;
 
-    & img {
+    & svg {
+      fill: red;
       display: block;
       margin-right: 8px;
     }
