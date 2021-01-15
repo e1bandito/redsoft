@@ -2,13 +2,13 @@
   <div class="contacts">
     <p class="contacts__phone">
       <svg width="14" height="14">
-        <use xlink:href="../assets/img/sprite.svg#icon_phone"/>
+        <use xlink:href="#icon_phone"/>
       </svg>
       <a href="tel:+74955555555" class="contacts__link">+7 (495) 555-55-55</a>
     </p>
     <p class="contacts__address">
       <svg width="14" height="14">
-        <use xlink:href="../assets/img/sprite.svg#icon_pin"/>
+        <use xlink:href="#icon_pin"/>
       </svg>
       г. Москва, ул. Расплетина, 24
     </p>
@@ -45,7 +45,6 @@ export default {
     align-items: center;
 
     & svg {
-      fill: red;
       display: block;
       margin-right: 8px;
     }

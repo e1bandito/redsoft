@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <Sprite/>
     <Header/>
     <Footer/>
   </div>
@@ -8,10 +9,12 @@
 <script>
 import Header from './components/Header.vue'
 import Footer from "@/components/Footer";
+import Sprite from "@/components/Sprite";
 
 export default {
   name: 'App',
   components: {
+    Sprite,
     Footer,
     Header
   }
