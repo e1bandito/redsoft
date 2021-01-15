@@ -6,8 +6,8 @@
       </label>
       <Btn
         :classes=btn.class
-        :type=btn.type
         :disabled=btn.disabled
+        :state="'default'"
         btnValue="Найти"
       />
     </form>
@@ -23,7 +23,6 @@ export default {
     return {
       btn: {
         class: 'btn--search',
-        type: 'submit',
         disabled: false
       }
     }

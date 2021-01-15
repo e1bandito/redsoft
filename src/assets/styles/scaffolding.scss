@@ -20,6 +20,8 @@ body {
   line-height: 1.5;
   background-color: $bg-light;
   margin: 0;
+  display: flex;
+  justify-content: center;
 }
 
 img {

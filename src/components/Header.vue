@@ -29,7 +29,6 @@ export default {
     padding: 18px 0 17px;
     border-bottom: 1px solid $border-light;
   }
-
   .header__inner {
     display: flex;
     align-items: center;

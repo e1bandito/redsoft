@@ -1,6 +1,6 @@
 <template>
   <article class="card"
-    :class="item.sold ? 'card--sold' : ''"
+    :class="item.state === 'sold' ? 'card--sold' : ''"
   >
     <div class="card__img">
       <picture>
@@ -15,18 +15,21 @@
       <div class="card__footer">
         <div class="card__price">
           <p class="card__old-price"
-            v-if="item.price.old && !item.sold"
+            v-if="item.state !== 'sold'"
           >{{ item.price.old }}</p>
           <p class="card__actual-price"
-            v-if="!item.sold"
+             v-if="item.state !== 'sold'"
           >{{ item.price.actual }}</p>
           <p class="card__sold"
-            v-if="item.sold"
+            v-if="item.state === 'sold'"
           >Продана на аукционе</p>
         </div>
         <Btn
-            v-if="!item.sold"
-            btn-value="Купить"
+            v-if="item.state !== 'sold'"
+            :class="item.state === 'inCart' ? 'btn--in-cart' : ''"
+            :state="item.state"
+            btnValue="Купить"
+            @click="getClick(index)"
         />
       </div>
     </div>
@@ -39,11 +42,15 @@ export default {
   name: "Card",
   components: {Btn},
   props: {
-    item: Object
+    item: Object,
+    index: Number
   },
   methods: {
     getUrl(pic) {
       return require(`../assets/img/${pic}`);
+    },
+    getClick(index) {
+      console.log(index);
     }
   }
 }
@@ -53,7 +60,7 @@ export default {
   @import "src/assets/styles/variables";
 
   .card {
-    width: 280px;
+    width: 100%;
     border: 1px solid $border-light;
     height: 100%;
     display: flex;

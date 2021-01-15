@@ -12,6 +12,7 @@
           >
             <Card
               :item=item
+              :index="index"
             />
           </li>
         </ul>
@@ -50,8 +51,7 @@ export default {
             actual: '1 000 000 $',
             old: '2 000 000 $'
           },
-          sold: false,
-          inCart: false
+          state: 'default'
         },
         {
           img: {
@@ -64,11 +64,8 @@ export default {
           title: '«Тайная вечеря»  Леонардо да Винчи',
           price: {
             actual: '3 000 000 $',
-            old: false
           },
-          oldPrice: false,
-          sold: false,
-          inCart: false
+          state: 'inProgress'
         },
         {
           img: {
@@ -83,8 +80,7 @@ export default {
             actual: '5 000 000 $',
             old: '6 000 000 $'
           },
-          sold: false,
-          inCart: false
+          state: 'inCart'
         },
         {
           img: {
@@ -94,13 +90,11 @@ export default {
             webp2x: 'cards/4@2x.webp'
           },
           type: 'jpg',
-          title: '«Урок анатомии»  Рембрандт',
+          title: '«Урок анатомии» Рембрандт',
           price: {
-            actual: false,
-            old: false
+            actual: '3 000 000 $'
           },
-          sold: true,
-          inCart: false
+          state: 'sold'
         }
       ]
     }
@@ -112,6 +106,7 @@ export default {
   @import "assets/styles/variables";
 
   #app {
+    width: 100%;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -119,6 +114,7 @@ export default {
 
   .products {
     padding: 45px 0;
+    flex-grow: 1;
   }
 
   .products__title {
@@ -134,5 +130,11 @@ export default {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+  }
+
+  .products__item {
+    width: calc((100% - 96px) / 4);
+    min-width: 280px;
+    margin-bottom: 32px;
   }
 </style>

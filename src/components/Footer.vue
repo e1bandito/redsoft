@@ -27,7 +27,6 @@ export default {
     flex-shrink: 0;
     padding: 18px 0;
     background-color: $bg-dark;
-    margin-top: auto;
 
     & #logo__bg {
       fill: $main;
