@@ -138,7 +138,6 @@ export default {
       this.setLsData();
     } else {
       let array = JSON.parse(localStorage.getItem('productsState'));
-      console.log(array);
       for (let i = 0; i < this.products.length; i++) {
         this.products[i].state = array[i];
       }
