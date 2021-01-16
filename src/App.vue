@@ -13,6 +13,7 @@
             <Card
               :item=item
               :index="index"
+              @click="getProduct"
             />
           </li>
         </ul>
@@ -27,6 +28,7 @@ import Header from './components/Header.vue'
 import Footer from "@/components/Footer";
 import Sprite from "@/components/Sprite";
 import Card from "@/components/Card";
+import axios from "axios";
 
 export default {
   name: 'App',
@@ -36,7 +38,7 @@ export default {
     Footer,
     Header
   },
-  data () {
+  data() {
     return {
       products: [
         {
@@ -65,7 +67,7 @@ export default {
           price: {
             actual: '3 000 000 $',
           },
-          state: 'inProgress'
+          state: 'default'
         },
         {
           img: {
@@ -96,7 +98,50 @@ export default {
           },
           state: 'sold'
         }
-      ]
+      ],
+      axiosData: {},
+      errors: [],
+      lsData: []
+    }
+  },
+  methods: {
+    setLsData() {
+      let arr = [];
+      for (let i = 0; i < this.products.length; i++) {
+        arr.push(this.products[i].state);
+      }
+      let serialArr = JSON.stringify(arr);
+      localStorage.setItem('productsState', serialArr);
+    },
+    getProduct(index) {
+      if(this.products[index].state === 'default') {
+        this.products[index].state = 'inProgress';
+        this.setLsData();
+        axios.get('https://jsonplaceholder.typicode.com/posts/1')
+          .then(response => {
+            this.axiosData = response.data;
+            this.products[index].state = 'inCart';
+            this.setLsData();
+          })
+          .catch(e => {
+            this.errors.push(e);
+          })
+      }
+      if(this.products[index].state === 'inCart') {
+        this.products[index].state = 'default';
+        this.setLsData();
+      }
+    }
+  },
+  mounted() {
+    if (localStorage.getItem('productsState') === null) {
+      this.setLsData();
+    } else {
+      let array = JSON.parse(localStorage.getItem('productsState'));
+      console.log(array);
+      for (let i = 0; i < this.products.length; i++) {
+        this.products[i].state = array[i];
+      }
     }
   }
 }

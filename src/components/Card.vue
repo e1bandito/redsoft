@@ -29,7 +29,7 @@
             :class="item.state === 'inCart' ? 'btn--in-cart' : ''"
             :state="item.state"
             btnValue="Купить"
-            @click="getClick(index)"
+            @click="getProduct(index)"
         />
       </div>
     </div>
@@ -49,8 +49,8 @@ export default {
     getUrl(pic) {
       return require(`../assets/img/${pic}`);
     },
-    getClick(index) {
-      console.log(index);
+    getProduct(index) {
+      this.$emit('click', index);
     }
   }
 }
